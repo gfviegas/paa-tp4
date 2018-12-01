@@ -8,7 +8,7 @@ OBJFILES = $(patsubst %.c, %.o, $(SOURCES))
 CC       = gcc
 CFLAGS   = -c -Wall
 LDFLAGS  =
-TARGET   = tp3
+TARGET   = tp4
 
 all: build
 build: $(TARGET)
@@ -21,6 +21,6 @@ cleanO:
 clean:
 	rm -f $(OBJFILES) $(TARGET) $(shell find . -name '*.h.gch') *~
 run:
-	./build/tp3
+	./build/tp4
 analysis:
-	./build/tp3 -a
+	./build/tp4 -a

@@ -1,5 +1,5 @@
 /**
- * Gerencia e chama as funções relacionadas aos puzzles, imprimindo e lendo
+ * Gerencia e chama as funções relacionadas as tarefas, imprimindo e lendo
  * os dados necessários
  *
  * Gustavo Viegas (3026) e Heitor Passeado (3055)
@@ -29,7 +29,8 @@ void printHeader(int analysisMode) {
     printf("\n\n");
     printLine();
     cprintf(BLUE, "_____                      _   _ _           _       \n| ___ \\                    | | | (_)         | |\n| |_/ / ___ _ __ ___ ______| | | |_ _ __   __| | ___\n| ___ \\/ _ \\ '_ ` _ \\______| | | | | '_ \\ / _` |/ _ \\\n| |_/ /  __/ | | | | |     \\ \\_/ / | | | | (_| | (_) |\n\\____/ \\___|_| |_| |_|      \\___/|_|_| |_|\\__,_|\\___/\n");
-    cprintf(BLUE, "\n \t Ao TP 3 !");
+    cprintf(BLUE, "\n \t Ao TP 4 !");
+    cprintf(YELLOW, "\n \t por: Gustavo Viegas e Heitor Passeado");
     printLine();
 
     printMenu(analysisMode);
@@ -51,7 +52,7 @@ void printMenu(int analysisMode) {
             _bruteForceInitial(analysisMode);
             break;
         case 2:
-            _cityMenu(analysisMode);
+            _shiftAndInitial(analysisMode);
             break;
         case 3:
             return;

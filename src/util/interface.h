@@ -1,5 +1,5 @@
 /**
- * Gerencia e chama as funções relacionadas aos puzzles, imprimindo e lendo
+ * Gerencia e chama as funções relacionadas as tarefas, imprimindo e lendo
  * os dados necessários
  *
  * Gustavo Viegas (3026) e Heitor Passeado (3055)
@@ -14,11 +14,8 @@
 #include <string.h>
 
 #include "logger.h"
-#include "../pyramid/pyramid.h"
-#include "../city/interfaceCity.h"
-#include "../pyramid/interfacePyramid.h"
-#include "../BM/bruteForce.h"
 #include "../BM/bruteForceInterface.h"
+#include "../SA/shiftAndInterface.h"
 /**
  * Imprime uma mensagem de aguardando e aguarda a entrada do usuário para continuar a execução do programa
  */

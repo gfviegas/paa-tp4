@@ -18,11 +18,8 @@
 #include "../util/interface.h"
 #include "../util/benchmark.h"
 
-/**
- * A partir de um arquivo que o usuário fornece, lê e interpreta o seu texto para ter seu texto buscado
- * @param text String a ser preenchida com o texto lido do arquivo do usuário
- */
-void loadTextFromFile(char *text);
+// Máximo de ocorrencias que podemos achar com forca bruta nesse programa
+#define BFORCE_MAX_OCCURRENCES 	150
 
 /**
  * Realiza a busca de padrão exato utilizando Força Bruta. Ao fim da execução, imprime as ocorrências

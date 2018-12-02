@@ -15,6 +15,7 @@
 
 #include "../util/interface.h"
 #include "../util/logger.h"
+#include "../util/fileReader.h"
 #include "bruteForce.h"
 
 /**

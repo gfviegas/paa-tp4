@@ -10,10 +10,10 @@
 
 // Tela inicial da busca de padrão com Rabin-Karp
 void _rabinKarpInitial(int analysisMode) {
-    char text[10000] = "";
+    char text[FILE_MAX_SIZE] = "";
     system("clear");
     cprintf(GREEN,"[MODO RABIN-KARP]");
-    loadTextFromFile(text);
+    parseFileInString(text);
     _rabinKarpMenu(analysisMode, text);
 }
 

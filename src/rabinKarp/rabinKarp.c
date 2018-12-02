@@ -8,23 +8,6 @@
 
 #include "rabinKarp.h"
 
-// A partir de um arquivo que o usuário fornece, lê e interpreta o seu texto para ter seu texto buscado
-void rabinKarpInitFile(char *text) {
-    char fileName [FILE_BUFFER_SIZE];
-    char currentLine [FILE_BUFFER_SIZE];
-    FILE *file = NULL;
-    cprintf(BLUE,"[CAMINHO] (Exemplo: resources/textoBase.txt)");
-    promptFilePath(fileName);
-    openFile(&file, fileName);
-
-    while (readLine(file, currentLine)) {
-      strcat(text, currentLine);
-    }
-
-    cprintf(CYAN, "Texto carregado! \n\n%s\n", text);
-    pressEnterToContinue();
-}
-
 // Calcula a hash de um número baseado no tamanho do alfabeto e no número primo de referência
 int calculateHash(int number) {
 	return number % PRIME_NUMBER;
@@ -33,11 +16,11 @@ int calculateHash(int number) {
 // Realiza a busca de padrão exato utilizando Rabin-Karp. Ao fim da execução, imprime as ocorrências
 void rabinKarpSearch(char *text, int analysisMode) {
 	char pattern[100];
-	cprintf(BLUE, "Digite a palavra : \n");
+	cprintf(BLUE, "Digite a palavra buscada (máx 100 caracteres): \n");
     prePrompt();
     scanf("%s", pattern);
 
-	int foundWordArray[64];
+	int foundWordArray[RKARP_MAX_OCCURRENCES];
 	int occurrences = 0;
 	int textLength = strlen(text);
 	int patternLength = strlen(pattern);

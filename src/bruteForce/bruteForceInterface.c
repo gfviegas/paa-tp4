@@ -10,10 +10,10 @@
 
 // Tela inicial da busca de padrão com força bruta
 void _bruteForceInitial(int analysisMode) {
-    char text[10000] = "";
+    char text[FILE_MAX_SIZE] = "";
     system("clear");
     cprintf(GREEN,"[MODO FORÇA BRUTA]");
-    loadTextFromFile(text);
+    parseFileInString(text);
     _bruteForceMenu(analysisMode, text);
 }
 

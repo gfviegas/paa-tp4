@@ -19,15 +19,11 @@
 #include "../util/benchmark.h"
 
 // Quantidade de caracteres do alfabeto
-#define ALPHABET_SIZE 	256
+#define ALPHABET_SIZE 			256
 // Um número primo qualquer pra ser fator de hashing
-#define PRIME_NUMBER 	101
-
-/**
- * A partir de um arquivo que o usuário fornece, lê e interpreta o seu texto para ter seu texto buscado
- * @param text String a ser preenchida com o texto lido do arquivo do usuário
- */
-void rabinKarpInitFile(char *text);
+#define PRIME_NUMBER 			101
+// Máximo de ocorrencias que podemos achar com rabinKarp nesse programa
+#define RKARP_MAX_OCCURRENCES 	300
 
 /**
  * Calcula a hash de um número baseado no tamanho do alfabeto e no número primo de referência

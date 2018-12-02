@@ -1,9 +1,11 @@
 #include "bruteForce.h"
 
+// A partir de um arquivo que o usuário fornece, lê e interpreta o seu texto para ter seu texto buscado
 void loadTextFromFile(char *text){
-    char fileName [FILE_BUFFER_SIZE];
-    char currentLine [FILE_BUFFER_SIZE];
+    char fileName[FILE_BUFFER_SIZE];
+    char currentLine[FILE_BUFFER_SIZE];
     FILE *file = NULL;
+
     cprintf(BLUE,"[CAMINHO] (Exemplo: resources/textoBase.txt)");
     promptFilePath(fileName);
     openFile(&file, fileName);
@@ -16,33 +18,36 @@ void loadTextFromFile(char *text){
     pressEnterToContinue();
 }
 
+// Realiza a busca de padrão exato utilizando Força Bruta. Ao fim da execução, imprime as ocorrências
 void bruteForceSearch(char *text, int analysisMode) {
     char search[100];
     cprintf(BLUE, "Digite a palavra : \n");
     prePrompt();
     scanf("%s", search);
+
     int textSize = strlen(text);
     int searchSize = strlen(search);
-    int i, j, k;
-    int foundWordArray[64], Occurrences = 0;
+    int foundWordArray[64];
+	int occurrences = 0;
 
 	clock_t startTime;
 	if (analysisMode) startTime = beginBenchmark();
 
-    for(i = 0; i<= (textSize - searchSize + 1); i++){
-        k = i;
-        j = 1;
-        while(text[k-1] == search[j-1] && j <= searchSize) {
+    for (int i = 0; i <= (textSize - searchSize + 1); i++) {
+    	int k = i;
+        int j = 1;
+
+        while (text[k - 1] == search[j - 1] && j <= searchSize) {
             j++;
             k++;
         }
-        if( j > searchSize ) {
-            foundWordArray[Occurrences] = i - 1;
-            Occurrences++;
+
+        if (j > searchSize) {
+            foundWordArray[occurrences] = i - 1;
+            occurrences++;
         }
     }
 
 	if (analysisMode) finishBenchmark(startTime, MICROSECONDS);
-
-    printOcorrences(foundWordArray, Occurrences, searchSize, text);
+    printOcorrences(foundWordArray, occurrences, searchSize, text);
 }

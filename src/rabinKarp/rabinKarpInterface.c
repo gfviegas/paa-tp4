@@ -1,14 +1,14 @@
 /**
  * Gerencia e chama as funções relacionadas ao casamento de palavras através do
- * Shift-And, imprimindo e lendo os dados necessários
+ * Rabin-Karp, imprimindo e lendo os dados necessários
  *
  * Gustavo Viegas (3026) e Heitor Passeado (3055)
  * @author Gustavo Viegas
  */
 
 #include "rabinKarpInterface.h"
-#include "rabinKarp.h"
 
+// Tela inicial da busca de padrão com Rabin-Karp
 void _rabinKarpInitial(int analysisMode) {
     char text[10000] = "";
     system("clear");
@@ -17,6 +17,7 @@ void _rabinKarpInitial(int analysisMode) {
     _rabinKarpMenu(analysisMode, text);
 }
 
+// Exibe o menu para fazer busca com Rabin-Karp
 void _rabinKarpMenu(int analysisMode, char *text) {
     int choice;
 

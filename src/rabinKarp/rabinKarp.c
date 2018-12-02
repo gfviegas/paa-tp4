@@ -1,5 +1,14 @@
+/**
+ * Gerencia e chama as funções relacionadas ao casamento com Rabin-Karp
+ * manipulando estruturas de dados, utilizando estratégias estudadas.
+ *
+ * Gustavo Viegas (3026) e Heitor Passeado (3055)
+ * @author Gustavo Viegas
+ */
+
 #include "rabinKarp.h"
 
+// A partir de um arquivo que o usuário fornece, lê e interpreta o seu texto para ter seu texto buscado
 void rabinKarpInitFile(char *text) {
     char fileName [FILE_BUFFER_SIZE];
     char currentLine [FILE_BUFFER_SIZE];
@@ -16,6 +25,12 @@ void rabinKarpInitFile(char *text) {
     pressEnterToContinue();
 }
 
+// Calcula a hash de um número baseado no tamanho do alfabeto e no número primo de referência
+int calculateHash(int number) {
+	return number % PRIME_NUMBER;
+}
+
+// Realiza a busca de padrão exato utilizando Rabin-Karp. Ao fim da execução, imprime as ocorrências
 void rabinKarpSearch(char *text, int analysisMode) {
 	char pattern[100];
 	cprintf(BLUE, "Digite a palavra : \n");
@@ -34,14 +49,14 @@ void rabinKarpSearch(char *text, int analysisMode) {
 	clock_t startTime;
 	if (analysisMode) startTime = beginBenchmark();
 
-	// hashFactor = ALPHABET_SIZE^(m-1)
+	// hashFactor = ALPHABET_SIZE^(m-1). Não usamos a math.pow porque tava dando erros de compilação.
 	for (i = 0; i < patternLength - 1; i++)
-		hashFactor = (hashFactor * ALPHABET_SIZE) % PRIME_NUMBER;
+		hashFactor = calculateHash(ALPHABET_SIZE * hashFactor);
 
 	// Calcula o hash do padrão e da primeira janela de ocorrência
 	for (i = 0; i < patternLength; i++) {
-		patternHash = (ALPHABET_SIZE * patternHash + pattern[i]) % PRIME_NUMBER;
-		textHash = (ALPHABET_SIZE * textHash + text[i]) % PRIME_NUMBER;
+		patternHash = calculateHash(ALPHABET_SIZE * patternHash + pattern[i]);
+		textHash = calculateHash(ALPHABET_SIZE * textHash + text[i]);
 	}
 
 	// Percorre o texto com o padrão, caracter por caracter
@@ -61,8 +76,8 @@ void rabinKarpSearch(char *text, int analysisMode) {
 		}
 
 		// Calcula o hash pra próxima janela do texto
-		if ( i < textLength - patternLength) {
-			textHash = (ALPHABET_SIZE * (textHash - text[i] * hashFactor) + text[i + patternLength]) % PRIME_NUMBER;
+		if (i < textLength - patternLength) {
+			textHash = calculateHash(ALPHABET_SIZE * (textHash - text[i] * hashFactor) + text[i + patternLength]);
 
 			// Se pegarmos algum valor negativo, convertemos ele pra positivo adicionando o numero primo que usamos pra calcular a hash.
 			if (textHash < 0) textHash = (textHash + PRIME_NUMBER);

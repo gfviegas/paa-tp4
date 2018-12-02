@@ -1,6 +1,14 @@
-#include "bruteForceInterface.h"
-#include "bruteForce.h"
+/**
+ * Gerencia e chama as funções relacionadas ao casamento de palavras através da
+ * força bruta, imprimindo e lendo os dados necessários
+ *
+ * Gustavo Viegas (3026) e Heitor Passeado (3055)
+ * @author Heitor Passeado
+ */
 
+#include "bruteForceInterface.h"
+
+// Tela inicial da busca de padrão com força bruta
 void _bruteForceInitial(int analysisMode) {
     char text[10000] = "";
     system("clear");
@@ -9,6 +17,7 @@ void _bruteForceInitial(int analysisMode) {
     _bruteForceMenu(analysisMode, text);
 }
 
+// Exibe o menu para fazer busca com força bruta
 void _bruteForceMenu(int analysisMode, char *text) {
     int choice;
 

@@ -28,9 +28,7 @@ void rabinKarpSearch(char *text, int analysisMode) {
 	int patternHash = 0;
 	int textHash = 0;
 	int hashFactor = 1;
-
 	clock_t startTime;
-	if (analysisMode) startTime = beginBenchmark();
 
 	// hashFactor = ALPHABET_SIZE^(m-1). Não usamos a math.pow porque tava dando erros de compilação.
 	for (i = 0; i < patternLength - 1; i++)
@@ -42,6 +40,7 @@ void rabinKarpSearch(char *text, int analysisMode) {
 		textHash = calculateHash(ALPHABET_SIZE * textHash + text[i]);
 	}
 
+	if (analysisMode) startTime = beginBenchmark();
 	// Percorre o texto com o padrão, caracter por caracter
 	for (i = 0; i <= textLength - patternLength; i++) {
 		// Verifica os valores hash da janela atual do texto e do padrão. Se o hash bater, então só verifica os caracteres um por um.

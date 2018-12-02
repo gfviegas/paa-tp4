@@ -17,11 +17,11 @@
 // Tamanho da string com caminho do arquivo
 #define FILE_PATH_BUFFER_SIZE 150
 
-// Tamanho maximo de cada linha do arquivo em caracteres (2^10)
-#define FILE_BUFFER_SIZE 1024
+// Tamanho maximo de cada linha do arquivo em caracteres
+#define FILE_BUFFER_SIZE 500
 
 // Tamanho da string que aramazena o arquivo. Máximo de 100 linhas.
-#define FILE_MAX_SIZE 102400
+#define FILE_MAX_SIZE 50000
 
 /**
  * Le o caminho pra um arquivo

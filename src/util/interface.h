@@ -14,8 +14,8 @@
 #include <string.h>
 
 #include "logger.h"
-#include "../BM/bruteForceInterface.h"
-#include "../SA/shiftAndInterface.h"
+#include "../bruteForce/bruteForceInterface.h"
+#include "../rabinKarp/rabinKarpInterface.h"
 /**
  * Imprime uma mensagem de aguardando e aguarda a entrada do usuário para continuar a execução do programa
  */
@@ -37,5 +37,7 @@ void printHeader(int analysisMode);
  * @param analysisMode Flag se o modo análise está ativo ou não
  */
 void printMenu(int analysisMode);
+
+void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text);
 
 #endif

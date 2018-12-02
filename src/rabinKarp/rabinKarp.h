@@ -6,20 +6,22 @@
  * @author Gustavo Viegas
  */
 
- #ifndef shiftAnd_h
- #define shiftAnd_h
+#ifndef rabinKarp_h
+#define rabinKarp_h
 
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "../util/fileReader.h"
 #include "../util/logger.h"
+#include "../util/interface.h"
 
-void shiftAndInitFile(char *text);
+#define ALPHABET_SIZE 	256
+#define PRIME_NUMBER 	101
 
-void shiftAndSearch(char *text);
+void rabinKarpInitFile(char *text);
 
-void shiftAndPrintOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text);
+void rabinKarpSearch(char *text);
 
 #endif

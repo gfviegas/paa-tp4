@@ -41,8 +41,8 @@ void printMenu(int analysisMode) {
     int choice;
 
     cprintf(GREEN, "\n \n Selecione qual método de pesquisa você deseja usar : \n\n");
-    cprintf(GREEN, "1 - BM\n");
-    cprintf(GREEN, "2 - Shift-and\n");
+    cprintf(GREEN, "1 - Força Bruta\n");
+    cprintf(GREEN, "2 - Rabin-Karp\n");
     cprintf(GREEN, "3 - Sair\n");
     prePrompt();
     scanf("%d", &choice);
@@ -52,12 +52,29 @@ void printMenu(int analysisMode) {
             _bruteForceInitial(analysisMode);
             break;
         case 2:
-            _shiftAndInitial(analysisMode);
+            _rabinKarpInitial(analysisMode);
             break;
         case 3:
             return;
         default:
             cprintf(RED, "\n\n * Digite apenas 1 ou 2, não temos tantas opções :(\n");
             return printMenu(analysisMode);
+    }
+}
+
+void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text) {
+    printLine();
+    int textSize = strlen(text);
+    for(int i = 0; i < textSize; i++) {
+        for (int j = 0; j < numberOfOccurrences; j++) {
+            if (foundWordArray[j] == i) {
+                for (int k = i; k < searchSize + i; k++) {
+                    cprintf(BLUE, "%c", text[k]);
+                }
+
+                i += searchSize;
+            }
+        }
+        printf("%c", text[i]);
     }
 }

@@ -6,8 +6,8 @@
  * @author Gustavo Viegas
  */
 
-#ifndef shiftAndInterface_h
-#define shiftAndInterface_h
+#ifndef rabinKarpInterface_h
+#define rabinKarpInterface_h
 
 #define WORD_MAX_LENGTH 250
 
@@ -15,12 +15,12 @@
 
 #include "../util/interface.h"
 #include "../util/logger.h"
-#include "shiftAnd.h"
+#include "rabinKarp.h"
 
 
-void _shiftAndInitial(int analysisMode);
+void _rabinKarpInitial(int analysisMode);
 
-void _shiftAndMenu(int analysisMode, char *text);
+void _rabinKarpMenu(int analysisMode, char *text);
 
 
-#endif /* shiftAndInterface_h */
+#endif /* rabinKarpInterface_h */

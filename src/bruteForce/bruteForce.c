@@ -40,23 +40,6 @@ void bruteForceSearch(char *text){
     }
     printLine();
     cprintf(CYAN, "Texto com as ocorrências em destaque: ");
-    printSearchedText(foundWordArray, Occurrences, searchSize, text);
+    printOcorrences(foundWordArray, Occurrences, searchSize, text);
     pressEnterToContinue();
-}
-
-void printSearchedText(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text){
-    printLine();
-    int textSize = strlen(text);
-    int i, j, k;
-    for(i = 0; i < textSize; i++){
-        for(j = 0; j < numberOfOccurrences; j++){
-            if(foundWordArray[j] == i) {
-                for(k = i; k < searchSize + i; k++){
-                    cprintf(BLUE, "%c", text[k]);
-                }
-                i += searchSize;
-            }
-        }
-        printf("%c", text[i]);
-    }
 }

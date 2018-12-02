@@ -6,18 +6,18 @@
  * @author Gustavo Viegas
  */
 
-#include "shiftAndInterface.h"
-#include "shiftAnd.h"
+#include "rabinKarpInterface.h"
+#include "rabinKarp.h"
 
-void _shiftAndInitial(int analysisMode) {
+void _rabinKarpInitial(int analysisMode) {
     char text[10000] = "";
     system("clear");
-    cprintf(GREEN,"[MODO SHIFT AND]");
+    cprintf(GREEN,"[MODO RABIN-KARP]");
     loadTextFromFile(text);
-    _shiftAndMenu(analysisMode, text);
+    _rabinKarpMenu(analysisMode, text);
 }
 
-void _shiftAndMenu(int analysisMode, char *text) {
+void _rabinKarpMenu(int analysisMode, char *text) {
     int choice;
 
     system("clear");
@@ -33,10 +33,10 @@ void _shiftAndMenu(int analysisMode, char *text) {
 
     switch (choice) {
         case 1:
-            shiftAndSearch(text);
+            rabinKarpSearch(text);
             break;
         case 2:
-            return _shiftAndInitial(analysisMode);
+            return _rabinKarpInitial(analysisMode);
         case 3:
             return printHeader(analysisMode);
         default:
@@ -44,5 +44,5 @@ void _shiftAndMenu(int analysisMode, char *text) {
             pressEnterToContinue();
             break;
     }
-    return _shiftAndMenu (analysisMode, text);
+    return _rabinKarpMenu (analysisMode, text);
 }

@@ -1,5 +1,5 @@
 /**
- * Realiza a busca no texto por meio do processo BM
+ * Realiza a busca no texto por meio do processo bruteForce
  */
  #ifndef bruteForce_h
  #define bruteForce_h
@@ -10,11 +10,10 @@
 
 #include "../util/fileReader.h"
 #include "../util/logger.h"
+#include "../util/interface.h"
 
 void loadTextFromFile(char *text);
 
 void bruteForceSearch(char *text);
-
-void printSearchedText(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text);
 
 #endif

@@ -62,10 +62,12 @@ void printMenu(int analysisMode) {
     }
 }
 
-void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text) {
+// Imprime as ocorrências de um texto buscado
+void printOccurrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text) {
 	int textSize = strlen(text);
 
 	printLine();
+    cprintf(CYAN, "Foram encontradas %d ocorrências! \n", numberOfOccurrences);
     cprintf(CYAN, "Texto com as ocorrências em destaque: ");
     printLine();
 

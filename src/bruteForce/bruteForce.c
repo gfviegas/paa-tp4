@@ -49,5 +49,5 @@ void bruteForceSearch(char *text, int analysisMode) {
     }
 
 	if (analysisMode) finishBenchmark(startTime, MICROSECONDS);
-    printOcorrences(foundWordArray, occurrences, searchSize, text);
+    printOccurrences(foundWordArray, occurrences, searchSize, text);
 }

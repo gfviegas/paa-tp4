@@ -38,6 +38,13 @@ void printHeader(int analysisMode);
  */
 void printMenu(int analysisMode);
 
-void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text);
+/**
+ * Imprime as ocorrências de um texto buscado
+ * @param foundWordArray      Vetor de ocorrencias encontradas
+ * @param numberOfOccurrences Quantidade de ocorrencias
+ * @param searchSize          Tamanho da busca
+ * @param text                Texto buscado
+ */
+void printOccurrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text);
 
 #endif

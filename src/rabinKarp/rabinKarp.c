@@ -85,5 +85,5 @@ void rabinKarpSearch(char *text, int analysisMode) {
 	}
 
 	if (analysisMode) finishBenchmark(startTime, MICROSECONDS);
-	printOcorrences(foundWordArray, occurrences, patternLength, text);
+	printOccurrences(foundWordArray, occurrences, patternLength, text);
 }

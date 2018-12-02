@@ -16,7 +16,7 @@ void loadTextFromFile(char *text){
     pressEnterToContinue();
 }
 
-void bruteForceSearch(char *text){
+void bruteForceSearch(char *text, int analysisMode) {
     char search[100];
     cprintf(BLUE, "Digite a palavra : \n");
     prePrompt();
@@ -25,6 +25,9 @@ void bruteForceSearch(char *text){
     int searchSize = strlen(search);
     int i, j, k;
     int foundWordArray[64], Occurrences = 0;
+
+	clock_t startTime;
+	if (analysisMode) startTime = beginBenchmark();
 
     for(i = 0; i<= (textSize - searchSize + 1); i++){
         k = i;
@@ -38,8 +41,8 @@ void bruteForceSearch(char *text){
             Occurrences++;
         }
     }
-    printLine();
-    cprintf(CYAN, "Texto com as ocorrências em destaque: ");
+
+	if (analysisMode) finishBenchmark(startTime, MICROSECONDS);
+
     printOcorrences(foundWordArray, Occurrences, searchSize, text);
-    pressEnterToContinue();
 }

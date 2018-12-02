@@ -9,18 +9,16 @@
 #ifndef rabinKarpInterface_h
 #define rabinKarpInterface_h
 
-#define WORD_MAX_LENGTH 250
-
 #include <stdio.h>
 
 #include "../util/interface.h"
 #include "../util/logger.h"
 #include "rabinKarp.h"
 
+#define WORD_MAX_LENGTH 250
 
 void _rabinKarpInitial(int analysisMode);
 
 void _rabinKarpMenu(int analysisMode, char *text);
-
 
 #endif /* rabinKarpInterface_h */

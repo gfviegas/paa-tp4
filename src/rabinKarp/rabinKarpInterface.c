@@ -33,7 +33,7 @@ void _rabinKarpMenu(int analysisMode, char *text) {
 
     switch (choice) {
         case 1:
-            rabinKarpSearch(text);
+            rabinKarpSearch(text, analysisMode);
             break;
         case 2:
             return _rabinKarpInitial(analysisMode);
@@ -44,5 +44,5 @@ void _rabinKarpMenu(int analysisMode, char *text) {
             pressEnterToContinue();
             break;
     }
-    return _rabinKarpMenu (analysisMode, text);
+    return _rabinKarpMenu(analysisMode, text);
 }

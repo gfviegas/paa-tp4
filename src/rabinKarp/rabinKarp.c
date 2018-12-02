@@ -1,6 +1,6 @@
 #include "rabinKarp.h"
 
-void rabinKarpInitFile(char *text){
+void rabinKarpInitFile(char *text) {
     char fileName [FILE_BUFFER_SIZE];
     char currentLine [FILE_BUFFER_SIZE];
     FILE *file = NULL;
@@ -16,7 +16,7 @@ void rabinKarpInitFile(char *text){
     pressEnterToContinue();
 }
 
-void rabinKarpSearch(char *text) {
+void rabinKarpSearch(char *text, int analysisMode) {
 	char pattern[100];
 	cprintf(BLUE, "Digite a palavra : \n");
     prePrompt();
@@ -30,6 +30,9 @@ void rabinKarpSearch(char *text) {
 	int patternHash = 0;
 	int textHash = 0;
 	int hashFactor = 1;
+
+	clock_t startTime;
+	if (analysisMode) startTime = beginBenchmark();
 
 	// hashFactor = ALPHABET_SIZE^(m-1)
 	for (i = 0; i < patternLength - 1; i++)
@@ -66,6 +69,6 @@ void rabinKarpSearch(char *text) {
 		}
 	}
 
+	if (analysisMode) finishBenchmark(startTime, MICROSECONDS);
 	printOcorrences(foundWordArray, occurrences, patternLength, text);
-	pressEnterToContinue();
 }

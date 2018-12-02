@@ -25,7 +25,7 @@ void _bruteForceMenu(int analysisMode, char *text) {
 
     switch (choice) {
         case 1:
-            bruteForceSearch(text);
+            bruteForceSearch(text, analysisMode);
             break;
         case 2:
             return _bruteForceInitial(analysisMode);

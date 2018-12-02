@@ -16,12 +16,13 @@
 #include "../util/fileReader.h"
 #include "../util/logger.h"
 #include "../util/interface.h"
+#include "../util/benchmark.h"
 
 #define ALPHABET_SIZE 	256
 #define PRIME_NUMBER 	101
 
 void rabinKarpInitFile(char *text);
 
-void rabinKarpSearch(char *text);
+void rabinKarpSearch(char *text, int analysisMode);
 
 #endif

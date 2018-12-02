@@ -63,8 +63,12 @@ void printMenu(int analysisMode) {
 }
 
 void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSize, char *text) {
+	int textSize = strlen(text);
+
+	printLine();
+    cprintf(CYAN, "Texto com as ocorrências em destaque: ");
     printLine();
-    int textSize = strlen(text);
+
     for(int i = 0; i < textSize; i++) {
         for (int j = 0; j < numberOfOccurrences; j++) {
             if (foundWordArray[j] == i) {
@@ -77,4 +81,6 @@ void printOcorrences(int *foundWordArray, int numberOfOccurrences, int searchSiz
         }
         printf("%c", text[i]);
     }
+
+	pressEnterToContinue();
 }

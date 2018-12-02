@@ -11,9 +11,10 @@
 #include "../util/fileReader.h"
 #include "../util/logger.h"
 #include "../util/interface.h"
+#include "../util/benchmark.h"
 
 void loadTextFromFile(char *text);
 
-void bruteForceSearch(char *text);
+void bruteForceSearch(char *text, int analysisMode);
 
 #endif
